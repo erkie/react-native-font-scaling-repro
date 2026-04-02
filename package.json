@@ -4,16 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --port 8082",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "react-native start --port 8082",
     "test": "jest"
   },
   "dependencies": {
     "react": "19.2.3",
-    "react-native": "0.84.1",
-    "@react-native/new-app-screen": "0.84.1",
-    "react-native-safe-area-context": "^5.5.2"
+    "react-native": "0.84.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

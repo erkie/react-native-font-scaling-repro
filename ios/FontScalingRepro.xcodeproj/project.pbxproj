@@ -9,9 +9,40 @@
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-FontScalingRepro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-FontScalingRepro.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		40A9D2A185F3661912403786 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A77329022F7DC8000096C1C4 /* FontScalingReproShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A77328F82F7DC8000096C1C4 /* FontScalingReproShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B10000020000000000000001 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000001 /* ShareViewController.swift */; };
+		B10000020000000000000002 /* ShareExtensionReactHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000003 /* ShareExtensionReactHelper.mm */; };
+		B10000020000000000000003 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000006 /* Inter-Regular.ttf */; };
+		B10000020000000000000004 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000007 /* Inter-Bold.ttf */; };
+		DD4E29FCD5B2A440B3B73BA2 /* libPods-FontScalingReproShareExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2492F751A951A2C222969B9 /* libPods-FontScalingReproShareExtension.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A77329002F7DC8000096C1C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A77328F72F7DC8000096C1C4;
+			remoteInfo = FontScalingReproShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A77329032F7DC8000096C1C4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A77329022F7DC8000096C1C4 /* FontScalingReproShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13B07F961A680F5B00A75B9A /* FontScalingRepro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontScalingRepro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,9 +52,20 @@
 		3B4392A12AC88292D35C810B /* Pods-FontScalingRepro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontScalingRepro.debug.xcconfig"; path = "Target Support Files/Pods-FontScalingRepro/Pods-FontScalingRepro.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-FontScalingRepro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontScalingRepro.release.xcconfig"; path = "Target Support Files/Pods-FontScalingRepro/Pods-FontScalingRepro.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-FontScalingRepro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FontScalingRepro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BDD8FD6B0A11F2C6AE7E6C /* Pods-FontScalingReproShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontScalingReproShareExtension.debug.xcconfig"; path = "Target Support Files/Pods-FontScalingReproShareExtension/Pods-FontScalingReproShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		66D920D64FFC608AFF8307D0 /* Pods-FontScalingReproShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontScalingReproShareExtension.release.xcconfig"; path = "Target Support Files/Pods-FontScalingReproShareExtension/Pods-FontScalingReproShareExtension.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FontScalingRepro/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FontScalingRepro/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A77328F82F7DC8000096C1C4 /* FontScalingReproShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FontScalingReproShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000010000000000000001 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		B10000010000000000000002 /* ShareExtensionReactHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareExtensionReactHelper.h; sourceTree = "<group>"; };
+		B10000010000000000000003 /* ShareExtensionReactHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ShareExtensionReactHelper.mm; sourceTree = "<group>"; };
+		B10000010000000000000004 /* ShareExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		B10000010000000000000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10000010000000000000006 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		B10000010000000000000007 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F2492F751A951A2C222969B9 /* libPods-FontScalingReproShareExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FontScalingReproShareExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +74,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-FontScalingRepro.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77328F52F7DC8000096C1C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4E29FCD5B2A440B3B73BA2 /* libPods-FontScalingReproShareExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +105,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-FontScalingRepro.a */,
+				F2492F751A951A2C222969B9 /* libPods-FontScalingReproShareExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,6 +122,7 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* FontScalingRepro */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				A77328F92F7DC8000096C1C4 /* FontScalingReproShareExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -84,8 +136,23 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* FontScalingRepro.app */,
+				A77328F82F7DC8000096C1C4 /* FontScalingReproShareExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A77328F92F7DC8000096C1C4 /* FontScalingReproShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B10000010000000000000001 /* ShareViewController.swift */,
+				B10000010000000000000002 /* ShareExtensionReactHelper.h */,
+				B10000010000000000000003 /* ShareExtensionReactHelper.mm */,
+				B10000010000000000000004 /* ShareExtension-Bridging-Header.h */,
+				B10000010000000000000005 /* Info.plist */,
+				B10000010000000000000006 /* Inter-Regular.ttf */,
+				B10000010000000000000007 /* Inter-Bold.ttf */,
+			);
+			path = FontScalingReproShareExtension;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -93,6 +160,8 @@
 			children = (
 				3B4392A12AC88292D35C810B /* Pods-FontScalingRepro.debug.xcconfig */,
 				5709B34CF0A7D63546082F79 /* Pods-FontScalingRepro.release.xcconfig */,
+				61BDD8FD6B0A11F2C6AE7E6C /* Pods-FontScalingReproShareExtension.debug.xcconfig */,
+				66D920D64FFC608AFF8307D0 /* Pods-FontScalingReproShareExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -111,15 +180,36 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				A77329032F7DC8000096C1C4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A77329012F7DC8000096C1C4 /* PBXTargetDependency */,
 			);
 			name = FontScalingRepro;
 			productName = FontScalingRepro;
 			productReference = 13B07F961A680F5B00A75B9A /* FontScalingRepro.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A77328F72F7DC8000096C1C4 /* FontScalingReproShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77329072F7DC8000096C1C4 /* Build configuration list for PBXNativeTarget "FontScalingReproShareExtension" */;
+			buildPhases = (
+				B2B1F42A27DCD41F7A08B70E /* [CP] Check Pods Manifest.lock */,
+				A77328F42F7DC8000096C1C4 /* Sources */,
+				A77328F52F7DC8000096C1C4 /* Frameworks */,
+				A77328F62F7DC8000096C1C4 /* Resources */,
+				7785F2CB85C7DAD934B9256B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FontScalingReproShareExtension;
+			productName = FontScalingReproShareExtension;
+			productReference = A77328F82F7DC8000096C1C4 /* FontScalingReproShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -127,10 +217,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					A77328F72F7DC8000096C1C4 = {
+						CreatedOnToolsVersion = 26.0;
 					};
 				};
 			};
@@ -148,6 +242,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* FontScalingRepro */,
+				A77328F72F7DC8000096C1C4 /* FontScalingReproShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +254,16 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				40A9D2A185F3661912403786 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77328F62F7DC8000096C1C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000020000000000000003 /* Inter-Regular.ttf in Resources */,
+				B10000020000000000000004 /* Inter-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +301,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FontScalingRepro/Pods-FontScalingRepro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7785F2CB85C7DAD934B9256B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FontScalingReproShareExtension/Pods-FontScalingReproShareExtension-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FontScalingReproShareExtension/Pods-FontScalingReproShareExtension-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FontScalingReproShareExtension/Pods-FontScalingReproShareExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B1F42A27DCD41F7A08B70E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FontScalingReproShareExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -248,7 +392,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A77328F42F7DC8000096C1C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000020000000000000001 /* ShareViewController.swift in Sources */,
+				B10000020000000000000002 /* ShareExtensionReactHelper.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A77329012F7DC8000096C1C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A77328F72F7DC8000096C1C4 /* FontScalingReproShareExtension */;
+			targetProxy = A77329002F7DC8000096C1C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
@@ -258,6 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY6PCKS95S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FontScalingRepro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -288,6 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY6PCKS95S;
 				INFOPLIST_FILE = FontScalingRepro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -370,6 +533,10 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -377,8 +544,13 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -435,6 +607,10 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -442,9 +618,114 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A77329042F7DC8000096C1C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61BDD8FD6B0A11F2C6AE7E6C /* Pods-FontScalingReproShareExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TY6PCKS95S;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FontScalingReproShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FontScalingReproShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.FontScalingRepro.FontScalingReproShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FontScalingReproShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A77329052F7DC8000096C1C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66D920D64FFC608AFF8307D0 /* Pods-FontScalingReproShareExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TY6PCKS95S;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FontScalingReproShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FontScalingReproShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.FontScalingRepro.FontScalingReproShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FontScalingReproShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -465,6 +746,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A77329072F7DC8000096C1C4 /* Build configuration list for PBXNativeTarget "FontScalingReproShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77329042F7DC8000096C1C4 /* Debug */,
+				A77329052F7DC8000096C1C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
