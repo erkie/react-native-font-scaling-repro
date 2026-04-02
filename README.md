@@ -1,97 +1,87 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# RCTFontSizeMultiplier returns 0 in iOS App Extensions (Fabric)
 
-# Getting Started
+Minimal reproduction for a bug where **custom font text is invisible** in iOS Share Extensions when using React Native 0.84+ with the New Architecture (Fabric).
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## The Bug
 
-## Step 1: Start Metro
+`RCTFontSizeMultiplier()` in `RCTFabricSurface.mm` calls `[UIApplication sharedApplication].preferredContentSizeCategory`. In App Extensions, `sharedApplication` is `nil`, so the entire expression returns `0`. This sets `layoutContext.fontSizeMultiplier = 0`, causing all text to be measured at `fontSize * 0 = 0`.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **System font text** still appears because `[UIFont systemFontOfSize:0]` returns a 12pt default font
+- **Custom font text** is invisible because `[UIFont fontWithName:@"Inter-Regular" size:0]` returns `nil`, falling back to a zero-metrics placeholder
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Main App (fonts work)
+
+![Main app with working fonts](in-app.png)
+
+### Share Extension (custom fonts invisible)
+
+![Share extension with invisible custom font text](in-extension.png)
+
+## Reproduction Steps
 
 ```sh
-# Using npm
+# 1. Install dependencies
+npm install
+cd ios && bundle install && bundle exec pod install && cd ..
+
+# 2. Start Metro (uses port 8082 to avoid conflicts)
 npm start
 
-# OR using Yarn
-yarn start
+# 3. Build and run (in a separate terminal)
+npm run ios -- --simulator 'iPhone Air'
+
+# 4. Open Safari in the simulator, navigate to any page
+
+# 5. Tap the Share button, select "FontScalingReproShareExtension"
+
+# 6. Observe: system font text ("System font" lines) renders,
+#    but custom font text ("Custom font Inter-Regular/Bold" lines) is invisible
 ```
 
-## Step 2: Build and run your app
+## Expected Behavior
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+All text renders, including text using custom fonts registered via `UIAppFonts`.
 
-### Android
+## Actual Behavior
 
-```sh
-# Using npm
-npm run android
+Text using custom `fontFamily` (e.g. `Inter-Regular`, `Inter-Bold`) is invisible in the Share Extension. The same text renders correctly in the main app.
 
-# OR using Yarn
-yarn android
+## Root Cause
+
+In [`React/Fabric/Surface/RCTFabricSurface.mm`](https://github.com/facebook/react-native/blob/main/packages/react-native/React/Fabric/Surface/RCTFabricSurface.mm), `_updateLayoutContext` calls:
+
+```objc
+layoutContext.fontSizeMultiplier = RCTFontSizeMultiplier();
 ```
 
-### iOS
+And `RCTFontSizeMultiplier()` does:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```objc
+return mapping[RCTSharedApplication().preferredContentSizeCategory].floatValue;
 ```
 
-Then, and every time you update your native dependencies, run:
+`RCTSharedApplication()` returns `nil` in App Extensions (by design -- `UIApplication.sharedApplication` is unavailable). Messaging `nil` returns `nil`, and `[nil floatValue]` returns `0.0`.
 
-```sh
-bundle exec pod install
+## Suggested Fix
+
+Replace the `UIApplication.sharedApplication` dependency with `UITraitCollection.currentTraitCollection`, which works in App Extensions:
+
+```objc
+// Before (broken in extensions):
+return mapping[RCTSharedApplication().preferredContentSizeCategory].floatValue;
+
+// After (works everywhere):
+NSString *category = RCTSharedApplication().preferredContentSizeCategory
+    ?: UITraitCollection.currentTraitCollection.preferredContentSizeCategory;
+return mapping[category].floatValue ?: 1.0;
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Environment
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- React Native: 0.84.1
+- React: 19.2.3
+- New Architecture: enabled (Fabric + Bridgeless)
+- Xcode: 17.0
+- iOS Simulator: 26.0
+- macOS: 26.3.1
+- Custom font: [Inter](https://rsms.me/inter/) (OFL license)
